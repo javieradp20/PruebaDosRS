@@ -11,8 +11,9 @@ namespace PruebaDos
         public int CodigoProducto { get; set; }
         public DateTime FechaIngreso { get; set; }
         public string Descripcion { get; set; }
-        public bool Dpisponibilidad { get; set; }
+        public bool Disponibilidad { get; set; }
         public string ClienteId { get; set; }
 
     }
+    //probando git
 }
