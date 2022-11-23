@@ -24,6 +24,22 @@ namespace PruebaDos
         #endregion
 
         #region Metodo
+        public void MotrarCliente() 
+        {Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("Cliente:");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(Nombre);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("|Rut:");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(Rut);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("|Fono:");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(Fono + "\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+        }
         #endregion
     }
 }
