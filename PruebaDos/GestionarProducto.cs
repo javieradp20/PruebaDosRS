@@ -20,7 +20,7 @@ namespace PruebaDos
         // ruta de javiera- felipe cambia la ruta para probar 
         static string rutaCliente = @"C:\ProgramacionAvansada2\PruebaDos\ruta\clientes.txt";
         static string rutaProducto = @"C:\ProgramacionAvansada2\PruebaDos\ruta\productos.txt";
-        static string rutaOperacion = @"C:\ProgramacionAvansada2\PruebaDos\rutas\rutas.txt";
+        static string rutaOperacion = @"C:\ProgramacionAvansada2\PruebaDos\rutas\operacionnes.txt";
         #endregion
 
         #region Utilidades
