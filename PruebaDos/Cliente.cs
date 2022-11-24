@@ -24,7 +24,7 @@ namespace PruebaDos
         #endregion
 
         #region Metodo
-        public void MotrarCliente()
+        public void MostrarCliente()
 
         // Console.ForegrounColor = Pone color en primer plano en la consola.
         {

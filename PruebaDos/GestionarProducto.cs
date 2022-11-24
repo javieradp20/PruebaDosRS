@@ -18,9 +18,9 @@ namespace PruebaDos
 
         #region Direcciones 
         // ruta de javiera- felipe cambia la ruta para probar 
-        static string rutaCliente = @"C:\Users\k_pab\source\repos\PruebaDos\PruebaDos\bin\Debug\clientes.txt";
-        static string rutaProducto = @"C:\Users\k_pab\source\repos\PruebaDos\PruebaDos\bin\Debug\productos.txt";
-        static string rutaOperacion = @"C:\Users\k_pab\source\repos\PruebaDos\PruebaDos\bin\Debug\Operacion.txt";
+        static string rutaCliente = @"C:\ProgramacionAvansada2\PruebaDos\ruta\clientes.txt";
+        static string rutaProducto = @"C:\ProgramacionAvansada2\PruebaDos\ruta\productos.txt";
+        static string rutaOperacion = @"C:\ProgramacionAvansada2\PruebaDos\rutas\rutas.txt";
         #endregion
 
         #region Utilidades
@@ -58,7 +58,7 @@ namespace PruebaDos
                     {
                         //divide la linea leida por "|" ingresado al momento de guardar
                         //Inicia desde 1 ya que el 0 es la fecha en la cual se ingreso solo queda registrada en el txt.
-                        linea = sr.ReadLine().Split("|");
+                        linea = sr.ReadLine().Split('|');
                         string nombre = linea[0];
                         string rut = linea[1];
                         int fono = int.Parse(linea[2]);
@@ -85,8 +85,8 @@ namespace PruebaDos
                 {
                     while (!sr.EndOfStream)
                     {
-                        linea = sr.ReadLine().Split("|");
-                        string[] prefe = linea[5].Split("-");
+                        linea = sr.ReadLine().Split('|');
+                        string[] prefe = linea[5].Split('-');
                         listaProductos.Add(new Producto(int.Parse(linea[0]), linea[1], DateTime.Parse(linea[2]),
                             linea[3], int.Parse(linea[4]), prefe, Convert.ToBoolean(linea[6])));
                     }
@@ -112,7 +112,7 @@ namespace PruebaDos
                     while (!sr.EndOfStream)
                     {
                         //divide la linea leida por "|" ingresado al momento de guardar
-                        linea = sr.ReadLine().Split("|");
+                        linea = sr.ReadLine().Split('|');
                         int idOperacion = int.Parse(linea[0]);
                         DateTime fechaOperacion = DateTime.Parse(linea[1]);
                         string tipoOperacion = linea[2];
@@ -120,7 +120,7 @@ namespace PruebaDos
                         int idProducto = int.Parse(linea[4]);
                         //se ingresan los valores leidos del string a cada parametro del nuevo cliente, en la lista.
                         listaOperaciones.Add(new Operacion(idOperacion,
-                            fechaOperacion, tipoOperacion, idCliente, idProducto));
+                            idCliente, idProducto.ToString(), tipoOperacion, fechaOperacion));
                     }
                 }
                 catch
@@ -135,7 +135,7 @@ namespace PruebaDos
         public static void ListarOperaciones() {
             if (listaOperaciones.Count != 0) {
                 //Consulta la lista, muestra todas las operaciones listadas.
-                IEnumerable<Operacion> busquedaFecha = from Operacion in listaOperaciones orderby Operacion.fechaOperacion descending select Operacion;
+                IEnumerable<Operacion> busquedaFecha = from Operacion in listaOperaciones orderby Operacion.FechaOperacion descending select Operacion;
                 Console.WriteLine("Operaciones realizadas:");
                 foreach (Operacion busqueda in busquedaFecha) {
                     busqueda.MostrarOperacion();
@@ -365,7 +365,7 @@ namespace PruebaDos
             do {
                 Console.WriteLine("Ingrese sus preferencias separadas por un guion, mínimo 3");
                 strPref = Console.ReadLine();
-                preferencias = strPref.Split("-");
+                preferencias = strPref.Split('-');
 
                 foreach (string prefBlanco in preferencias) {
                     if (prefBlanco == "") {
@@ -425,7 +425,7 @@ namespace PruebaDos
                     nuevoId = nuevoId * rnd;
                 }
                 IEnumerable<Operacion> filtroOperaciones = from Operacion in listaOperaciones where Operacion.IdOperacion == nuevoId select Operacion;
-
+//aca voy
                 if (filtroOperaciones.Count() == 0) {
                     listaOperaciones.Add(new Operacion(nuevoId, fecha, tipoOperacion, nCliente, nProducto));
                     GestionarProducto.insertarTxtOperacion();
@@ -556,7 +556,7 @@ namespace PruebaDos
                     string o = "";
 
                     foreach (Operacion operacion in listaOperaciones) {
-                        o = operacion.IdOperacion + "|" + operacion.fechaOperacion + "|" + operacion.TipoOperacion + "|" + operacion.IdCliente + "|" + operacion.IdProducto;
+                        o = operacion.IdOperacion + "|" + operacion.FechaOperacion + "|" + operacion.TipoOperacion + "|" + operacion.IdCliente + "|" + operacion.IdProducto;
 
                         //En caso de que no sea el último producto agrega una nueva linea a escribir.
                         if (listaOperaciones.Last<Operacion>().IdOperacion != operacion.IdOperacion) {
