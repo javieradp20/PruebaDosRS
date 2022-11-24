@@ -24,8 +24,11 @@ namespace PruebaDos
         #endregion
 
         #region Metodo
-        public void MotrarCliente() 
-        {Console.ForegroundColor = ConsoleColor.DarkGray;
+        public void MotrarCliente()
+
+        // Console.ForegrounColor = Pone color en primer plano en la consola.
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("Cliente:");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(Nombre);
