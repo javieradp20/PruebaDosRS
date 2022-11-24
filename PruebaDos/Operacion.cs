@@ -29,6 +29,35 @@ namespace PruebaDos
         #endregion
 
         #region Metodos
+        public void MostrarOperacion() {
+            {
+                //Console.ForegroundColor = ConsoleColor.DarkGray;
+                //Console.Write("Id Operacion:");
+                //Console.ForegroundColor = ConsoleColor.White;
+                //Console.Write(IdOperacion);
+
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write("Fecha Operacion:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(FechaOperacion);
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write("|TipoOperacion:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(TipoOperacion);
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write("|IdCliente:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(IdCliente);
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write("|IdProducto:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(IdProducto + "\n");
+                Console.ForegroundColor = ConsoleColor.Gray;
+
+            }
+
+
+        }
         #endregion
 
     }

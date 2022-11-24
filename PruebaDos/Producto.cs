@@ -41,7 +41,7 @@ namespace PruebaDos
             }
             else
                 strDisponible = "No";
-
+                
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("Codigo:");
             Console.ForegroundColor = ConsoleColor.White;
